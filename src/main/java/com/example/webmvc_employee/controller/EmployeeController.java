@@ -40,6 +40,6 @@ public class EmployeeController {
     @DeleteMapping("/{empId}")
     public String deleteEmployee(@PathVariable String empId) {
         employeeService.deleteEmployee(empId);
-        return "삭제완료";
+        return "삭제 완료";
     }
 }

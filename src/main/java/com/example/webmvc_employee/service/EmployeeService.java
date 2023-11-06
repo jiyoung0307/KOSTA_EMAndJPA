@@ -13,32 +13,32 @@ import java.util.List;
 @Transactional
 @RequiredArgsConstructor
 public class EmployeeService {
-    private final EmployeeRepository employeeRepositroy;
+    private final EmployeeRepository employeeRepository;
 
     @Transactional(readOnly = true)
     public List<Employee> getAllEmployees() {
-        return employeeRepositroy.findAll();
+        return employeeRepository.findAll();
     }
     @Transactional(readOnly = true)
     public Employee getEmployee(String empId) {
-        return employeeRepositroy.findById(empId);
+        return employeeRepository.findById(empId);
     }
 
     public void addEmployee(Employee employee) {
-        employeeRepositroy.save(employee);
+        employeeRepository.save(employee);
     }
 
     public void updateEmployee(EmployeeUpdateDTO employeeUpdateDTO) {
-        Employee employee = employeeRepositroy.findById(employeeUpdateDTO.getEmpId());
+        Employee employee = employeeRepository.findById(employeeUpdateDTO.getEmpId());
         employee.setEmpType(employeeUpdateDTO.getEmpType());
         employee.setSalary(employeeUpdateDTO.getSalary());
-        employeeRepositroy.save(employee);
+        employeeRepository.save(employee);
     }
 
     public void deleteEmployee(String empId) {
-        Employee emp = employeeRepositroy.findById(empId);
+        Employee emp = employeeRepository.findById(empId);
         if(emp != null) {
-            employeeRepositroy.delete(emp);
+            employeeRepository.delete(emp);
         }
     }
 }
