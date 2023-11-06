@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-@RequiredArgsConstructor // 생성자 + Autowired
-public class EmployeeRepositroy {
+@RequiredArgsConstructor // 생성자 + autowired
+public class EmployeeRepository {
     @PersistenceContext
     private final EntityManager em;
 
@@ -23,12 +23,8 @@ public class EmployeeRepositroy {
         return em.find(Employee.class, empId);
     }
 
-    public void save(Employee employee) {
+    public void save(Employee employee) { // insert & update
         em.persist(employee);
-    }
-
-    public void update(Employee employee) {
-        em.merge(employee);
     }
 
     public void delete(Employee employee) {
