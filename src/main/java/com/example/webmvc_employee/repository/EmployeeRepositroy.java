@@ -1,15 +1,17 @@
-package com.example.webmvc_employee.repositroy;
+package com.example.webmvc_employee.repository;
 
 import com.example.webmvc_employee.entity.Employee;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-@RequiredArgsConstructor // 생성자 + autowired
+@RequiredArgsConstructor // 생성자 + Autowired
 public class EmployeeRepositroy {
+    @PersistenceContext
     private final EntityManager em;
 
     public List<Employee> findAll() {

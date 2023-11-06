@@ -1,21 +1,18 @@
 package com.example.webmvc_employee.repository;
 
 import com.example.webmvc_employee.entity.Employee;
-import jakarta.persistence.EntityManager;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 class EmployeeRepositroyTest {
-    private jakarta.persistence.EntityManager EntityManager;
-    private final com.example.webmvc_employee.repositroy.EmployeeRepositroy employeeRepositroy
-            = new com.example.webmvc_employee.repositroy.EmployeeRepositroy(EntityManager);
+    @Autowired
+    EmployeeRepositroy employeeRepositroy;
 
     @Test
     @Transactional
