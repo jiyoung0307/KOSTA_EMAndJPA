@@ -1,5 +1,6 @@
 package com.example.webmvc_employee.controller;
 
+import com.example.webmvc_employee.dto.EmployeeCreateDTO;
 import com.example.webmvc_employee.dto.EmployeeUpdateDTO;
 import com.example.webmvc_employee.entity.Employee;
 import com.example.webmvc_employee.service.EmployeeService;
@@ -25,8 +26,9 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public String addEmployee(@RequestBody Employee employee) {
-        employeeService.addEmployee(employee);
+    public String addEmployee(@RequestBody EmployeeCreateDTO employeeCreateDTO) {
+        employeeService.addEmployee(employeeCreateDTO);
+        //edeptId, employee, employeeFamily);
         return "등록완료";
     }
 
@@ -40,6 +42,6 @@ public class EmployeeController {
     @DeleteMapping("/{empId}")
     public String deleteEmployee(@PathVariable String empId) {
         employeeService.deleteEmployee(empId);
-        return "삭제 완료";
+        return "삭제완료";
     }
 }

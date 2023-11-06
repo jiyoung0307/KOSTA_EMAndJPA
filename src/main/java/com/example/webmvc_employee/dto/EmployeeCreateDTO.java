@@ -9,8 +9,13 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class EmployeeUpdateDTO {
+public class EmployeeCreateDTO {
     private String empId;
+    private String empName;
     private EmpType empType;
+    private String joinDate;
     private Long salary;
+    private int deptId;
+    private String familyName;
+    private String familyType;
 }
